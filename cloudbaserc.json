@@ -1,27 +1,20 @@
 {
-  "envId": "{{env.ENV_ID}}",
-  "version": "2.0",
-  "region": "gz",
-  "framework": {
-    "name": "gh-actions-test",
-    "plugins": {
-      "func": {
-        "use": "@cloudbase/framework-plugin-function",
-        "inputs": {
-          "functions": [
-            {
-              "name": "example",
-              "memorySize": 128,
-              "timeout": 5,
-              "runtime": "Nodejs10.15",
-              "handler": "index.main",
-              "envVariables": {
-                "accessToken": "{{env.accessToken}}"
-              }
+    "envId": "blog-7geug3v37e236130",
+    "version": "2.0",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [],
+    "region": "ap-guangzhou",
+    "framework": {
+        "name": "blog",
+        "plugins": {
+            "hexo": {
+                "use": "@cloudbase/framework-plugin-website",
+                "inputs": {
+                    "buildCommand": "npx hexo generate",
+                    "outputPath": "./public"
+                }
             }
-          ]
         }
-      }
     }
-  }
 }
